@@ -1,0 +1,47 @@
+/* Default light mode */
+body {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Dark mode */
+body.dark-mode {
+  background: #121212;
+  color: #ffffff;
+}
+/* Basic layout inspired by screenshot */
+:root{ --sidebar-w:230px; --blue:#2f97c8; --sidebar-bg:#2f3a3f; --muted:#f4f6f8; }
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+.app-shell{display:flex;min-height:100vh;background:var(--muted);}
+.sidebar{width:var(--sidebar-w);background:#343a40;color:#fff;padding:1rem 0;position:fixed;left:0;top:0;bottom:0;}
+.sidebar-brand{display:flex;align-items:center;gap:.6rem;padding:0 1rem;margin-bottom:1rem}
+.sidebar-brand img{width:34px;height:34px;border-radius:50%}
+.sidebar .nav{padding-left:0}
+.sidebar .nav-link{color:#dfe6ea;padding:.6rem 1rem;display:flex;align-items:center;border-left:4px solid transparent}
+.sidebar .nav-link:hover{background:rgba(255,255,255,0.03);color:#fff}
+.main-content{margin-left:var(--sidebar-w);flex:1;display:flex;flex-direction:column;min-height:100vh}
+.topbar{height:56px;background:#3f99b5;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 1rem;box-shadow:0 2px 0 rgba(0,0,0,0.05)}
+.topbar .avatar{width:36px;height:36px;border-radius:50%;}
+.container-fluid{max-width:1100px}
+.panel-header{background:#fff;border-left:6px solid #1e90ff}
+.card{border-radius:6px}
+.footer{background:transparent;margin-top:auto}
+.table-responsive{min-height:200px}
+.nav-link.active{background:#0d6efd;color:#fff;border-left-color:#0d6efd}
+.modal .form-label{font-weight:600}
+@media(max-width:900px){ .sidebar{position:relative;width:100%;height:auto} .main-content{margin-left:0} }
+
+
+
+/* Sidebar collapse behavior */
+.sidebar{ transition: width .22s ease, min-width .22s ease; overflow: hidden; }
+.sidebar .nav-link{ display:flex; align-items:center; gap:.5rem; padding:.6rem .9rem; transition: padding .22s ease; }
+.sidebar .nav-link .bi{ font-size:1.15rem; min-width:18px; text-align:center; }
+.sidebar .nav-text{ transition: opacity .18s ease; }
+body.sidebar-collapsed .sidebar{ width:70px !important; min-width:70px !important; }
+body.sidebar-collapsed .sidebar .nav-link{ padding-left:.6rem; padding-right:.6rem; }
+body.sidebar-collapsed .sidebar .nav-text{ opacity:0; display:none; }
+body.sidebar-collapsed .main-content{ margin-left:70px !important; }
+@media(max-width:900px){
+  body.sidebar-collapsed .main-content{ margin-left:0 !important; }
+}
